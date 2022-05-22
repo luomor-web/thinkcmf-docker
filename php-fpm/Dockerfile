@@ -16,5 +16,5 @@ RUN apk apk update && apk upgrade \
    && wget -nv -O /usr/local/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
    && chmod u+x /usr/local/bin/composer \
    && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
-COPY ../shell/get-thinkcmf.sh /var/www/get-thinkcmf.sh
+COPY ./get-thinkcmf.sh /var/www/get-thinkcmf.sh
 CMD ["/var/www/get-thinkcmf.sh"]

@@ -28,12 +28,16 @@ www 存放项目
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  确保已经安装docker 和 docker-compose 
+2.  docker-compose up 启动集群
+3.  访问127.0.0.1 安装thinkcmf
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  mysql 数据库账户root 数据库密码 thinkcmf  数据库地址mysql
+2.  redis 默认没账号密码
+3.  集群mysql管理adminer  访问 http://127.0.0.1:1000/   
+4.  集群redis管理phpredisadmin  访问 http://127.0.0.1:2000/   管理平台账号thinkcmf 管理平台密码thinkcmf
+
+#### 注意事项
+1.  mysql redis php-fpm 均没映射对外端口  值映射出nginx 的80 端口
