@@ -1,8 +1,8 @@
-# docker
+# ThinkCMF docker
 
 #### 介绍
 
-ThinkCMF docker环境
+`ThinkCMF docker`环境
 
 通过`docker-compose`组成容器集群群
 
@@ -40,4 +40,4 @@ ThinkCMF docker环境
 4.  集群`redis`管理`phpredisadmin`  访问 http://127.0.0.1:2000/   管理平台账号thinkcmf 管理平台密码thinkcmf
 
 #### 注意事项
-1. ` mysql redis php-fpm `均没映射对外端口  值映射出`nginx` 的80 端口
+1. ` mysql redis php-fpm `均没映射对外端口  只映射出`nginx` 的80 端口
