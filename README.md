@@ -4,7 +4,7 @@
 
 `ThinkCMF docker`环境
 
-通过`docker-compose`组成容器集群群
+通过`docker-compose`组成容器集群
 
 #### 目录说明
 
