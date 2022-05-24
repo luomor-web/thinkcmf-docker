@@ -15,6 +15,6 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
     && wget -nv -O /usr/local/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
     && chmod u+x /usr/local/bin/composer \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
-    && echo -e "\033[42;37m Build Completed :).\033[0m\n" \
+    && echo -e "\033[42;37m Build Completed :).\033[0m\n"
 COPY ./get-thinkcmf.sh /var/www/get-thinkcmf.sh
 CMD ["/var/www/get-thinkcmf.sh"]
