@@ -8,6 +8,9 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
     && docker-php-ext-configure gd --with-freetype=/usr/include/freetype2/freetype --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd pdo_mysql gd bcmath mbstring zip sockets \
     && pecl channel-update pecl.php.net && pecl install redis && docker-php-ext-enable redis \
+    && cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
+    && sed -i "s/;curl.cainfo =/curl.cainfo=\/etc\/ssl\/certs\/ca-certificates.crt/g" /usr/local/etc/php/php.ini \
+    && sed -i "s/;openssl.cafile=/openssl.cafile=\/etc\/ssl\/certs\/ca-certificates.crt/g" /usr/local/etc/php/php.ini \
     # ---------- clear works ----------
     && apk del .build-deps \
     && rm -rf /var/cache/apk/* /tmp/* /usr/share/man \

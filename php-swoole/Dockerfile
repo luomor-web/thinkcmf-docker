@@ -19,6 +19,8 @@ RUN set -ex \
     #  ---------- some config ----------
     && cd /etc/php8 \
     # - config PHP
+    && sed -i "s/;curl.cainfo =/curl.cainfo=\/etc\/ssl\/certs\/ca-certificates.crt/g" /etc/php8/php.ini \
+    && sed -i "s/;openssl.cafile=/openssl.cafile=\/etc\/ssl\/certs\/ca-certificates.crt/g" /etc/php8/php.ini \
     && { \
         echo "upload_max_filesize=128M"; \
         echo "post_max_size=128M"; \
