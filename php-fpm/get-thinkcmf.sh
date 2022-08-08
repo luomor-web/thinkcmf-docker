@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 if [[ -f "/var/www/html/vendor/thinkcmf/cmf/composer.json" ]]; then
 say="ThinkCMF已安装"
 else

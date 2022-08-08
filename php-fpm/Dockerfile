@@ -1,6 +1,7 @@
 FROM php:8.0-fpm-alpine
 LABEL maintainer="ThinkCMF" version="1.0" license="MIT" app.name="ThinkCMF"
 ENV TZ "Asia/Shanghai"
+COPY ./get-thinkcmf.sh /var/www/get-thinkcmf.sh
 RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories \
     && apk apk update && apk upgrade \
     && apk add  --no-cache --virtual .build-deps oniguruma-dev libpng-dev libzip-dev freetype-dev libjpeg-turbo-dev $PHPIZE_DEPS \
@@ -17,7 +18,8 @@ RUN sed -i "s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g" /etc/apk/repositories
     # install composer
     && wget -nv -O /usr/local/bin/composer https://mirrors.aliyun.com/composer/composer.phar \
     && chmod u+x /usr/local/bin/composer \
+    && chmod u+x /var/www/get-thinkcmf.sh \
     && composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/ \
     && echo -e "\033[42;37m Build Completed :).\033[0m\n"
-COPY ./get-thinkcmf.sh /var/www/get-thinkcmf.sh
+
 CMD ["/var/www/get-thinkcmf.sh"]
